@@ -1,0 +1,4 @@
+interface: mce
+type: dbus
+state: unstable
+scope: Internal

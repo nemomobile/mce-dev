@@ -1,0 +1,24 @@
+Source: mce-dev
+Section: devel
+Priority: optional
+Maintainer: David Weinehall <david.weinehall@nokia.com>
+Uploaders: Ilya Dogolazky <ilya.dogolazky@nokia.com>, Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>
+Build-Depends: debhelper (>= 5.0.0)
+Build-Depends-Indep: doxygen
+Standards-Version: 3.7.3
+
+Package: mce-dev
+Depends: ${misc:Depends}
+Suggests: mce-doc
+Architecture: all
+Description: development files for mce
+ This package contains headers defining the D-Bus method calls
+ provided by the Mode Control Entity, and the signals emitted by it.
+
+Package: mce-doc
+Section: doc
+Depends: lynx | www-browser, ${misc:Depends}
+Architecture: all
+Description: Documentation files for mce D-Bus API
+ This package contains documentation describing the D-Bus method calls
+ provided by the Mode Control Entity, and the signals emitted by it.

@@ -1,0 +1,391 @@
+/**
+ * @file dbus-names.h
+ * D-Bus Interface to the Mode Control Entity
+ * <p>
+ * This file is part of mce-dev
+ * <p>
+ * Copyright © 2004-2010 Nokia Corporation and/or its subsidiary(-ies).
+ * <p>
+ * @author David Weinehall <david.weinehall@nokia.com>
+ *
+ * These headers are free software; you can redistribute them
+ * and/or modify them under the terms of the GNU Lesser General Public
+ * License version 2.1 as published by the Free Software Foundation.
+ *
+ * These headers are distributed in the hope that they will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with these headers.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+#ifndef _MCE_DBUS_NAMES_H_
+#define _MCE_DBUS_NAMES_H_
+
+/**
+ * @name D-Bus Daemon
+ */
+
+/*@{*/
+
+/**
+ * MCE D-Bus service
+ *
+ * @since v0.3
+ */
+#define MCE_SERVICE			"com.nokia.mce"
+
+/**
+ * MCE D-Bus Request interface
+ *
+ * @since v0.3
+ */
+#define MCE_REQUEST_IF			"com.nokia.mce.request"
+/**
+ * MCE D-Bus Signal interface
+ *
+ * @since v0.3
+ */
+#define MCE_SIGNAL_IF			"com.nokia.mce.signal"
+/**
+ * MCE D-Bus Request path
+ *
+ * @since v0.3
+ */
+#define MCE_REQUEST_PATH		"/com/nokia/mce/request"
+/**
+ * MCE D-Bus Signal path
+ *
+ * @since v0.3
+ */
+#define MCE_SIGNAL_PATH			"/com/nokia/mce/signal"
+
+/**
+ * The MCE D-Bus error interface; currently not used
+ *
+ * @since v0.3
+ */
+#define MCE_ERROR_FATAL			"com.nokia.mce.error.fatal"
+/**
+ * The D-Bus interface for invalid arguments; currently not used
+ *
+ * @since v0.3
+ */
+#define MCE_ERROR_INVALID_ARGS		"org.freedesktop.DBus.Error.InvalidArgs"
+
+/*@}*/
+
+/**
+ * @name Generic D-Bus methods
+ */
+
+/*@{*/
+
+/**
+ * Query radio states
+ *
+ * @since v1.10.60
+ * @return @c dbus_uint32_t Radio states or:ed together
+ *         (see @ref mce/mode-names.h for defines for the radio states)
+ */
+#define MCE_RADIO_STATES_GET		"get_radio_states"
+
+/**
+ * Query the call state
+ *
+ * @since v1.8.1
+ * @return @c gchar @c * with the new call state
+ *             (see @ref mce/mode-names.h for valid call states)
+ * @return @c gchar @c * with the new emergency state type
+ *             (see @ref mce/mode-names.h for valid emergency state types)
+ */
+#define MCE_CALL_STATE_GET		"get_call_state"
+
+/**
+ * Query the touchscreen/keypad lock mode
+ *
+ * @since v1.4.0
+ * @return @c gchar @c * with the touchscreen/keypad lock mode
+ *         (see @ref mce/mode-names.h for valid lock modes)
+ */
+#define MCE_TKLOCK_MODE_GET		"get_tklock_mode"
+
+/**
+ * Query the display status
+ *
+ * @since v1.5.21
+ * @return @c gchar @c * with the display state
+ *         (see @ref mce/mode-names.h for valid display states)
+ */
+#define MCE_DISPLAY_STATUS_GET		"get_display_status"
+
+/**
+ * Query CABC mode
+ *
+ * @since v1.10.0
+ * @return @c gchar @c * with the CABC mode
+ *         (see @ref mce/mode-names.h for valid CABC modes)
+ */
+#define MCE_CABC_MODE_GET		"get_cabc_mode"
+
+/**
+ * Query the automatic power saving mode
+ *
+ * @since v1.10.44
+ * @return @c dbus_bool_t @c TRUE if automatic power saving mode is active,
+ *                        @c FALSE if automatic power saving mode is inactive
+ */
+#define MCE_PSM_STATE_GET		"get_psm_state"
+
+/**
+ * Query key backlight state
+ *
+ * @since v1.10.30
+ * @return @c dbus_bool_t @c TRUE if the key backlight is on,
+ *                        @c FALSE if the key backlight is off
+ */
+#define MCE_KEY_BACKLIGHT_STATE_GET	"get_key_backlight_state"
+
+/**
+ * Query the inactivity status
+ *
+ * @since v1.5.2
+ * @return @c dbus_bool_t @c TRUE if the system is inactive,
+ *                        @c FALSE if the system is active
+ */
+#define MCE_INACTIVITY_STATUS_GET	"get_inactivity_status"
+
+/**
+ * Query the MCE version
+ *
+ * @since v1.1.6
+ * @return @c gchar @c * with the MCE version
+ */
+#define MCE_VERSION_GET			"get_version"
+
+/**
+ * Request radio states change
+ *
+ * @since v1.10.60
+ * @param @c dbus_uint32_t New radio states or:ed together
+ *        (see @ref mce/mode-names.h for defines for the radio states)
+ * @param @c dbus_uint32_t Mask for radio states or:ed together
+ *        (see @ref mce/mode-names.h for defines for the radio states)
+ */
+#define MCE_RADIO_STATES_CHANGE_REQ	"req_radio_states_change"
+
+/**
+ * Request call state change
+ * Changes can only be made to/from the "none" state; all other
+ * transitions will be vetoed.  This is to avoid race conditions
+ * between different services.
+ *
+ * An exception is made when the tuple is active:emergency;
+ * such requests are always accepted
+ *
+ * If the service that requests the transition emits a NameOwnerChanged,
+ * then the call state will revert back to "none", to ensure that
+ * crashing applications doesn't cause a forever busy call state
+ *
+ * @since v1.8.1
+ * @param call_state @c gchar @c * with the new call state
+ *             (see @ref mce/mode-names.h for valid call states)
+ * @param call_type @c gchar @c * with the new call type
+ *             (see @ref mce/mode-names.h for valid call types)
+ * @return @c dbus_bool_t @c TRUE if the new call state was accepted,
+ *                        @c FALSE if the new call state was vetoed
+ */
+#define MCE_CALL_STATE_CHANGE_REQ	"req_call_state_change"
+
+/**
+ * Unblank display
+ *
+ * @since v0.5
+ */
+#define MCE_DISPLAY_ON_REQ		"req_display_state_on"
+
+/**
+ * Dim display
+ *
+ * @since v1.6.20
+ */
+#define MCE_DISPLAY_DIM_REQ		"req_display_state_dim"
+
+/**
+ * Blank display
+ *
+ * @since v1.6.20
+ */
+#define MCE_DISPLAY_OFF_REQ		"req_display_state_off"
+
+/**
+ * Prevent display from blanking
+ *
+ * @since v0.5
+ */
+#define MCE_PREVENT_BLANK_REQ		"req_display_blanking_pause"
+
+/**
+ * Cancel display blanking prevention
+ *
+ * @since v1.10.35
+ */
+#define MCE_CANCEL_PREVENT_BLANK_REQ	"req_display_cancel_blanking_pause"
+
+/**
+ * Request CABC mode change
+ *
+ * @since v1.10.0
+ * @param mode @c gchar @c * with the new CABC mode
+ *             (see @ref mce/mode-names.h for valid CABC modes)
+ * @return @c gchar @c * with the updated CABC mode
+ *             (see @ref mce/mode-names.h for valid CABC modes)
+ */
+#define MCE_CABC_MODE_REQ		"req_cabc_mode"
+
+/**
+ * Request tklock mode change
+ *
+ * @since v1.4.0
+ * @param mode @c gchar @c * with the new touchscreen/keypad lock mode
+ *             (see @ref mce/mode-names.h for valid lock modes)
+ */
+#define MCE_TKLOCK_MODE_CHANGE_REQ	"req_tklock_mode_change"
+
+/**
+ * Request powerkey event triggering
+ *
+ * @since v1.5.3
+ * @param type @c dbus_bool_t with the type of powerkey event to
+ *                trigger; @c FALSE == short powerkey press,
+ *                         @c TRUE == long powerkey press
+ * @since v1.10.54
+ * @param type @c dbus_uint32_t with the type of powerkey event to
+ *                trigger; @c 0 == short powerkey press,
+ *                         @c 1 == long powerkey press,
+ *                         @c 2 == double powerkey press
+ */
+#define MCE_TRIGGER_POWERKEY_EVENT_REQ	"req_trigger_powerkey_event"
+
+/*@}*/
+
+/**
+ * @name Generic D-Bus signals
+ */
+
+/*@{*/
+
+/**
+ * Signal that indicates that the touchscreen/keypad lock mode has changed
+ *
+ * @since v1.4.0
+ * @return @c gchar @c * with the new touchscreen/keypad lock mode
+ *         (see @ref mce/mode-names.h for valid lock modes)
+ */
+#define MCE_TKLOCK_MODE_SIG		"tklock_mode_ind"
+
+/**
+ * Notify everyone that the display is on/dimmed/off
+ *
+ * @since v1.5.21
+ * @return @c gchar @c * with the display state
+ *         (see @ref mce/mode-names.h for valid display states)
+ */
+#define MCE_DISPLAY_SIG			"display_status_ind"
+
+/**
+ * Notify everyone that the state of the automatic power saving mode changed
+ *
+ * @since v1.10.44
+ * @return @c dbus_bool_t @c TRUE if automatic power saving mode is active,
+ *                        @c FALSE if automatic power saving mode is inactive
+ */
+#define MCE_PSM_STATE_SIG		"psm_state_ind"
+
+/**
+ * Notify everyone that the system is active/inactive
+ *
+ * @since v0.9.3
+ * @return @c dbus_bool_t @c TRUE if the system is inactive,
+ *                        @c FALSE if the system is active
+ */
+#define MCE_INACTIVITY_SIG		"system_inactivity_ind"
+
+/**
+ * Notify everyone that the radio states have changed
+ *
+ * @since v1.10.60
+ * @return @c dbus_uint32_t Radio states or:ed together
+ *         (see @ref mce/mode-names.h for defines for the radio states)
+ */
+#define MCE_RADIO_STATES_SIG		"radio_states_ind"
+
+/**
+ * Notify everyone that the call state has changed
+ *
+ * @since v1.8.1
+ * @return @c gchar @c * with the new call state
+ *             (see @ref mce/mode-names.h for valid call states)
+ * @return @c gchar @c * with the new emergency state type
+ *             (see @ref mce/mode-names.h for valid emergency state types)
+ */
+#define MCE_CALL_STATE_SIG		"sig_call_state_ind"
+
+/*@}*/
+
+/**
+ * @name LED interface D-Bus methods
+ */
+
+/*@{*/
+
+/**
+ * Activates a pre-defined LED pattern
+ * Non-existing patterns are ignored
+ *
+ * @since v1.5.0
+ * @param pattern @c gchar @c * with the pattern name
+ *                (see @c /etc/mce/mce.ini for valid pattern names)
+ */
+#define MCE_ACTIVATE_LED_PATTERN	"req_led_pattern_activate"
+
+/**
+ * Deactivates a pre-defined LED pattern
+ * Non-existing patterns are ignored
+ *
+ * @since v1.5.0
+ * @param pattern @c gchar @c * with the pattern name
+ *                (see @c /etc/mce/mce.ini for valid pattern names)
+ */
+#define MCE_DEACTIVATE_LED_PATTERN	"req_led_pattern_deactivate"
+
+/**
+ * Enable LED; this does not affect the LED pattern stack
+ * Note: The GConf setting for LED flashing overrides this value
+ *       If the pattern stack does not contain any active patterns,
+ *       the LED logic will still remain in enabled mode,
+ *       but will not display any patterns until a pattern is activated
+ *
+ *       Do NOT use this as a "master switch" for the LED framework,
+ *       since some patterns should *always* be visible
+ *       this interface is meant for testing and development only
+ *
+ * @since v1.5.0
+ */
+#define MCE_ENABLE_LED			"req_led_enable"
+
+/**
+ * Disable LED; this does not affect the LED pattern stack
+ * Note: Do NOT use this as a "master switch" for the LED framework,
+ *       since some patterns should *always* be visible
+ *       this interface is meant for testing and development only
+ *
+ * @since v1.5.0
+ */
+#define MCE_DISABLE_LED			"req_led_disable"
+
+/*@}*/
+
+#endif /* _MCE_DBUS_NAMES_H_ */
