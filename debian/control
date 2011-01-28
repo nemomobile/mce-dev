@@ -2,7 +2,7 @@ Source: mce-dev
 Section: devel
 Priority: optional
 Maintainer: David Weinehall <david.weinehall@nokia.com>
-Uploaders: Ilya Dogolazky <ilya.dogolazky@nokia.com>, Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>
+Uploaders: Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>
 Build-Depends: debhelper (>= 5.0.0)
 Build-Depends-Indep: doxygen
 Standards-Version: 3.7.3

@@ -1,10 +1,10 @@
 Document: mce
 Title: MCE D-Bus Interface
-Author:
+Author: David Weinehall
 Abstract: The MCE daemon is used on the Maemo platform for various
  low-level services, such as the LEDs, display control,
  touchscreen/keypad lock, etc.
-
+ .
  The D-Bus API provided by MCE allows applications to get information
  about the state of these services and to make various requests.
 Section: Programming

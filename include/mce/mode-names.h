@@ -48,6 +48,18 @@
  * @since v1.10.60
  */
 #define MCE_RADIO_STATE_BLUETOOTH	(1 << 3)
+/**
+ * NFC; set - enabled, unset - disabled
+ *
+ * @since v1.10.93
+ */
+#define MCE_RADIO_STATE_NFC		(1 << 4)
+/**
+ * FM transmitter; set - enabled, unset - disabled
+ *
+ * @since v1.10.93
+ */
+#define MCE_RADIO_STATE_FMTX		(1 << 5)
 
 /**
  * No ongoing call

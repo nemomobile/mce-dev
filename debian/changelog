@@ -1,3 +1,15 @@
+mce-dev (1.10.26) unstable; urgency=low
+
+  * Fixed errors in the doc-base file
+
+ -- David Weinehall <david.weinehall@nokia.com>  Mon, 24 Jan 2011 20:49:02 +0200
+
+mce-dev (1.10.25) unstable; urgency=low
+
+  * Added radio state flags for NFC and FM transmitter
+
+ -- David Weinehall <david.weinehall@nokia.com>  Thu, 20 Jan 2011 13:54:23 +0200
+
 mce-dev (1.10.24) unstable; urgency=low
 
   * MCE_RADIO_STATES_CHANGE_REQ does not return the updated radio states
