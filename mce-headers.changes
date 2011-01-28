@@ -1,0 +1,5 @@
+* Fri Jan 28 2011 Tapio Rantala <ext-tapio.rantala@nokia.com> 1.10.26-1
+- New upstream version (BMC#13081)
+
+* Wed Jan 19 2011 Tapio Rantala <ext-tapio.rantala@nokia.com> 1.10.24-1
+- Initial meego packaging (FEA#5525) (FEA#5526) (FEA#5527) (FEA#5528)

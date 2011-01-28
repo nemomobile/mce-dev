@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index b6784ad..7a293fd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -22,6 +22,7 @@ INCLUDE_FILES := $(INCDIR)/dbus-names.h $(INCDIR)/mode-names.h
+ 
+ .PHONY: doc
+ doc:
++	mkdir -p $(TOPDIR)/doc/
+ 	@$(DOXYGEN) 2> $(TOPDIR)/doc/warnings > /dev/null
+ 
+ clean:
