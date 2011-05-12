@@ -1,3 +1,17 @@
+mce-dev (1.10.28) unstable; urgency=low
+
+  * Added MCE_ADD_ACTIVITY_CALLBACK_REQ and MCE_REMOVE_ACTIVITY_CALLBACK_REQ
+    (Fixes: NB#239760)
+
+ -- David Weinehall <david.weinehall@nokia.com>  Fri, 08 Apr 2011 15:43:13 +0300
+
+mce-dev (1.10.27) unstable; urgency=low
+
+  * Added credential annotations (Fixes: NB#231412)
+  * Removed deprecated MCE_TK_SILENT variants
+
+ -- David Weinehall <david.weinehall@nokia.com>  Mon, 28 Feb 2011 14:25:23 +0200
+
 mce-dev (1.10.26) unstable; urgency=low
 
   * Fixed errors in the doc-base file

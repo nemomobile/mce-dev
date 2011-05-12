@@ -4,7 +4,7 @@
  * <p>
  * This file is part of mce-dev
  * <p>
- * Copyright © 2004-2010 Nokia Corporation and/or its subsidiary(-ies).
+ * Copyright © 2004-2011 Nokia Corporation and/or its subsidiary(-ies).
  * <p>
  * @author David Weinehall <david.weinehall@nokia.com>
  *
@@ -149,6 +149,30 @@
 #define MCE_KEY_BACKLIGHT_STATE_GET	"get_key_backlight_state"
 
 /**
+ * Add an activity notification callback;
+ * the next user activity will trigger this callback
+ * callbacks are one-shot -- once the callback has been invoked,
+ * it will be unregistered
+ *
+ * @since 1.10.106
+ * @param service @c gchar @c * The method call service
+ * @param path @c gchar @c * The method call path
+ * @param interface @c gchar @c * The method call interface
+ * @param name @c gchar @c * The name of the method to call
+ * @return @c dbus_bool_t @c TRUE if registration was successful,
+ *                        @c FALSE if registration was a failure
+ *                           (too many registered clients)
+ */
+#define MCE_ADD_ACTIVITY_CALLBACK_REQ	"add_activity_callback"
+
+/**
+ * Remove any activity notification callback belonging to the calling process
+ *
+ * @since 1.10.106
+ */
+#define MCE_REMOVE_ACTIVITY_CALLBACK_REQ	"remove_activity_callback"
+
+/**
  * Query the inactivity status
  *
  * @since v1.5.2
@@ -169,6 +193,7 @@
  * Request radio states change
  *
  * @since v1.10.60
+ * @credential mce::DeviceModeControl
  * @param @c dbus_uint32_t New radio states or:ed together
  *        (see @ref mce/mode-names.h for defines for the radio states)
  * @param @c dbus_uint32_t Mask for radio states or:ed together
@@ -190,6 +215,7 @@
  * crashing applications doesn't cause a forever busy call state
  *
  * @since v1.8.1
+ * @credential mce::CallStateControl
  * @param call_state @c gchar @c * with the new call state
  *             (see @ref mce/mode-names.h for valid call states)
  * @param call_type @c gchar @c * with the new call type
@@ -249,6 +275,7 @@
  * Request tklock mode change
  *
  * @since v1.4.0
+ * @credential mce::TKLockControl
  * @param mode @c gchar @c * with the new touchscreen/keypad lock mode
  *             (see @ref mce/mode-names.h for valid lock modes)
  */
@@ -257,6 +284,7 @@
 /**
  * Request powerkey event triggering
  *
+ * @credential mce::DeviceModeControl
  * @since v1.5.3
  * @param type @c dbus_bool_t with the type of powerkey event to
  *                trigger; @c FALSE == short powerkey press,
@@ -345,6 +373,7 @@
  * Activates a pre-defined LED pattern
  * Non-existing patterns are ignored
  *
+ * @credential mce::LEDControl
  * @since v1.5.0
  * @param pattern @c gchar @c * with the pattern name
  *                (see @c /etc/mce/mce.ini for valid pattern names)
@@ -355,6 +384,7 @@
  * Deactivates a pre-defined LED pattern
  * Non-existing patterns are ignored
  *
+ * @credential mce::LEDControl
  * @since v1.5.0
  * @param pattern @c gchar @c * with the pattern name
  *                (see @c /etc/mce/mce.ini for valid pattern names)
@@ -372,6 +402,7 @@
  *       since some patterns should *always* be visible
  *       this interface is meant for testing and development only
  *
+ * @credential mce::LEDControl
  * @since v1.5.0
  */
 #define MCE_ENABLE_LED			"req_led_enable"
@@ -382,6 +413,7 @@
  *       since some patterns should *always* be visible
  *       this interface is meant for testing and development only
  *
+ * @credential mce::LEDControl
  * @since v1.5.0
  */
 #define MCE_DISABLE_LED			"req_led_disable"
