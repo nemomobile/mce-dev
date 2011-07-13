@@ -182,6 +182,22 @@
 #define MCE_INACTIVITY_STATUS_GET	"get_inactivity_status"
 
 /**
+ * Query the current color profile id
+ *
+ * @since v1.10.132 <- TODO: check version
+ * @return @c gchar @c * with the the current profile id
+ */
+#define MCE_COLOR_PROFILE_GET		"get_color_profile"
+
+/**
+ * Query the list of the available color profile ids
+ *
+ * @since v1.10.132 <- TODO: check version
+ * @return @c gchar @c ** with the nul-terminated array of the color profile ids
+ */
+#define MCE_COLOR_PROFILE_IDS_GET		"get_color_profile_ids"
+
+/**
  * Query the MCE version
  *
  * @since v1.1.6
@@ -296,6 +312,17 @@
  *                         @c 2 == double powerkey press
  */
 #define MCE_TRIGGER_POWERKEY_EVENT_REQ	"req_trigger_powerkey_event"
+
+/**
+ * Request color profile change
+ *
+ * @since v1.10.132 <- TODO: check on release
+ * @credential mce::ColorProfileControl
+ * @param mode @c gchar @c * with the new color profile id
+ *             (see @ref MCE_COLOR_PROFILE_IDS_GET to learn
+ *              how to get the valid color profile ids)
+ */
+#define MCE_COLOR_PROFILE_CHANGE_REQ	"req_color_profile_change"
 
 /*@}*/
 
