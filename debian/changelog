@@ -1,3 +1,9 @@
+mce-dev (1.10.29) unstable; urgency=low
+
+  * Color profile testing
+
+ -- Santtu Lakkala <ext-santtu.1.lakkala@nokia.com>  Fri, 19 Aug 2011 09:50:25 +0300
+
 mce-dev (1.10.28) unstable; urgency=low
 
   * Added MCE_ADD_ACTIVITY_CALLBACK_REQ and MCE_REMOVE_ACTIVITY_CALLBACK_REQ

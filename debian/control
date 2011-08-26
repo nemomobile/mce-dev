@@ -1,8 +1,8 @@
 Source: mce-dev
 Section: devel
 Priority: optional
-Maintainer: David Weinehall <david.weinehall@nokia.com>
-Uploaders: Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>
+Maintainer: Santtu Lakkala <ext-santtu.1.lakkala@nokia.com>
+Uploaders: Tuomo Tanskanen <ext-tuomo.1.tanskanen@nokia.com>, Jukka Turunen <ext-jukka.t.turunen@nokia.com>
 Build-Depends: debhelper (>= 5.0.0)
 Build-Depends-Indep: doxygen
 Standards-Version: 3.7.3
