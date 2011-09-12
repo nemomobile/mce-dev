@@ -21,12 +21,15 @@ PCFILE  := mce.pc
 INCLUDE_FILES := $(INCDIR)/dbus-names.h $(INCDIR)/mode-names.h
 
 .PHONY: doc
-doc:
+doc:	doc/warnings
+
+doc/warnings: $(INCLUDE_FILES) Doxyfile
+	@if [ ! -d "$(DOCDIR)" ]; then mkdir "$(DOCDIR)"; fi
 	@$(DOXYGEN) 2> $(TOPDIR)/doc/warnings > /dev/null
 
 clean:
 	@if [ x"$(DOCDIR)" != x"" ]; then	\
-		rm -rf $(DOCDIR)/*;		\
+		rm -rf "$(DOCDIR)";		\
 	fi
 
 .PHONY: install
