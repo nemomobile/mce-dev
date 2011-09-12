@@ -184,7 +184,7 @@
 /**
  * Query the current color profile id
  *
- * @since v1.10.132 <- TODO: check version
+ * @since v1.11.2
  * @return @c gchar @c * with the the current profile id
  */
 #define MCE_COLOR_PROFILE_GET		"get_color_profile"
@@ -192,7 +192,7 @@
 /**
  * Query the list of the available color profile ids
  *
- * @since v1.10.132 <- TODO: check version
+ * @since v1.11.2
  * @return @c gchar @c ** with the nul-terminated array of the color profile ids
  */
 #define MCE_COLOR_PROFILE_IDS_GET		"get_color_profile_ids"
@@ -316,7 +316,7 @@
 /**
  * Request color profile change
  *
- * @since v1.10.132 <- TODO: check on release
+ * @since v1.11.2
  * @credential mce::ColorProfileControl
  * @param mode @c gchar @c * with the new color profile id
  *             (see @ref MCE_COLOR_PROFILE_IDS_GET to learn
@@ -367,6 +367,14 @@
  *                        @c FALSE if the system is active
  */
 #define MCE_INACTIVITY_SIG		"system_inactivity_ind"
+
+/**
+ * Notify everyone that the color profile has changed
+ *
+ * @since v1.11.2
+ * @return @c gchar @c * with the color profile id
+ */
+#define MCE_COLOR_PROFILE_SIG		"color_profile_ind"
 
 /**
  * Notify everyone that the radio states have changed
