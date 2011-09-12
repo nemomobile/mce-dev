@@ -1,3 +1,10 @@
+mce-dev (1.11.0) unstable; urgency=low
+
+  * Added MCE_COLOR_PROFILE_GET, MCE_COLOR_PROFILE_IDS_GET,
+    MCE_COLOR_PROFILE_CHANGE_REQ, MCE_COLOR_PROFILE_SIG (Fixes: NB#269000)
+
+ -- Santtu Lakkala <ext-santtu.1.lakkala@nokia.com>  Mon, 12 Sep 2011 12:56:11 +0300
+
 mce-dev (1.10.28) unstable; urgency=low
 
   * Added MCE_ADD_ACTIVITY_CALLBACK_REQ and MCE_REMOVE_ACTIVITY_CALLBACK_REQ
