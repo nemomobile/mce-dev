@@ -1,3 +1,10 @@
+mce-dev (1.12.2) oneiric; urgency=low
+
+  * Added MCE_TK_LOCKED_DELAY
+  * Version sync with mce itself
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Wed, 31 Oct 2012 19:38:56 +0200
+
 mce-dev (1.11.0) unstable; urgency=low
 
   * Added MCE_COLOR_PROFILE_GET, MCE_COLOR_PROFILE_IDS_GET,
