@@ -120,6 +120,12 @@
  */
 #define MCE_TK_LOCKED_DIM			"locked-dim"
 /**
+ * Touchscreen/Keypad locked with delay
+ *
+ * @since v1.12.2
+ */
+#define MCE_TK_LOCKED_DELAY			"locked-delay"
+/**
  * Touchscreen/Keypad silently locked with fadeout
  *
  * @since v1.4.15
