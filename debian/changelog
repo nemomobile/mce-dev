@@ -1,3 +1,9 @@
+mce-dev (1.12.3) unstable; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Thu, 07 Feb 2013 12:56:10 +0200
+
 mce-dev (1.12.2) oneiric; urgency=low
 
   * Added MCE_TK_LOCKED_DELAY
