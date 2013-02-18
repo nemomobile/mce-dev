@@ -344,7 +344,7 @@
  * lost D-Bus connection (exit, crash, ...) or all timeouts
  * have been missed.
  *
- * @since v1.12.7
+ * @since v1.12.8
  *
  * @return period in seconds as DBUS_TYPE_UINT32
  */
@@ -360,7 +360,7 @@
  * Note: The boolean reply message is optional and will be sent
  *       only if requested.
  *
- * @since v1.12.7
+ * @since v1.12.8
  *
  * @return success as DBUS_TYPE_BOOLEAN
  */
@@ -375,7 +375,7 @@
  * Note: The boolean reply message is optional and will be sent
  *       only if requested.
  *
- * @since v1.12.7
+ * @since v1.12.8
  *
  * @return success as DBUS_TYPE_BOOLEAN
  */
@@ -390,7 +390,7 @@
  * Note: The boolean reply message is optional and will be sent
  *       only if requested.
  *
- * @since v1.12.7
+ * @since v1.12.8
  *
  * @return success as DBUS_TYPE_BOOLEAN
  */
