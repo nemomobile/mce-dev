@@ -1,6 +1,8 @@
 mce-dev (1.12.3) unstable; urgency=low
 
   * NOT RELEASED YET
+  * Added cpu-keepalive methods
+  * Removed unintentional mce-doc -> mce-headers dependency
 
  -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Thu, 07 Feb 2013 12:56:10 +0200
 
