@@ -324,6 +324,78 @@
  */
 #define MCE_COLOR_PROFILE_CHANGE_REQ	"req_color_profile_change"
 
+/** Query the length of time late suspend can be blocked
+ *
+ * The idea is: if some process needs to do non-interactive
+ * background processing, it can prevent the system from
+ * entering late suspend by
+ *
+ * 1) get timer period via #MCE_CPU_KEEPALIVE_PERIOD_REQ call
+ *
+ * 2) call #MCE_CPU_KEEPALIVE_START_REQ
+ *
+ * 3) repeat #MCE_CPU_KEEPALIVE_START_REQ calls in interval
+ *    that is shorter than the maximum obtained at (1)
+ *
+ * 4) call #MCE_CPU_KEEPALIVE_STOP_REQ when finished
+ *
+ * MCE keeps track of active clients and blocks late suspend
+ * until all clients have called #MCE_CPU_KEEPALIVE_STOP_REQ,
+ * lost D-Bus connection (exit, crash, ...) or all timeouts
+ * have been missed.
+ *
+ * @since v1.12.8
+ *
+ * @return period in seconds as DBUS_TYPE_UINT32
+ */
+#define MCE_CPU_KEEPALIVE_PERIOD_REQ	"req_cpu_keepalive_period"
+
+/** Temporarily disable enter late suspend policy
+ *
+ * This method call must be repeated periodically to keep
+ * the system from entering late suspend.
+ *
+ * The period length can be obtained via #MCE_CPU_KEEPALIVE_PERIOD_REQ.
+ *
+ * Note: The boolean reply message is optional and will be sent
+ *       only if requested.
+ *
+ * @since v1.12.8
+ *
+ * @return success as DBUS_TYPE_BOOLEAN
+ */
+#define MCE_CPU_KEEPALIVE_START_REQ	"req_cpu_keepalive_start"
+
+/** Allow normal enter late suspend policy again
+ *
+ * If a process blocks late suspend via #MCE_CPU_KEEPALIVE_START_REQ,
+ * it must call #MCE_CPU_KEEPALIVE_STOP_REQ when background processing
+ * is finished to enable normal late suspend policy again.
+ *
+ * Note: The boolean reply message is optional and will be sent
+ *       only if requested.
+ *
+ * @since v1.12.8
+ *
+ * @return success as DBUS_TYPE_BOOLEAN
+ */
+#define MCE_CPU_KEEPALIVE_STOP_REQ	"req_cpu_keepalive_stop"
+
+/** Signal wakeup from suspend due to aligned timer triggering
+ *
+ * NOTE: This is reserved for use from dsme iphb module and is
+ * used to transfer ownership of rtc irq wakeup wakelock from
+ * dsme to mce.
+ *
+ * Note: The boolean reply message is optional and will be sent
+ *       only if requested.
+ *
+ * @since v1.12.8
+ *
+ * @return success as DBUS_TYPE_BOOLEAN
+ */
+#define MCE_CPU_KEEPALIVE_WAKEUP_REQ	"req_cpu_keepalive_wakeup"
+
 /*@}*/
 
 /**
