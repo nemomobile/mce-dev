@@ -1,0 +1,12 @@
+diff -urN a/Makefile b/Makefile
+--- a/Makefile	2009-11-30 09:41:59.397638000 +0200
++++ b/Makefile	2010-07-07 14:50:26.226452261 +0300
+@@ -6,7 +6,7 @@
+ # Modified by: Ilya Dogolazky, Tuomo Tanskanen
+ 
+ INSTALL_DIR := install -d
+-INSTALL_DATA := install -o root -g root --mode=644
++INSTALL_DATA := install --mode=644
+ 
+ DOXYGEN := doxygen
+ 

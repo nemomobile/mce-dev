@@ -1,0 +1,30 @@
+Name: mce-headers
+Summary: Development files for mce
+Version: 1.12.3
+Release: 1
+Group: Development/Libraries
+License: LGPLv2
+URL: https://github.com/nemomobile/mce-dev
+Sources:
+    - "%{name}-%{version}.tar.bz2"
+Patches:
+    - "%{name}-1.10.24-no-ownership.patch"
+Description: |
+    This package contains headers defining the D-Bus method calls
+    provided by the Mode Control Entity, and the signals emitted by it.
+
+PkgBR:
+    - doxygen
+Configure: none
+Builder: make
+SubPackages:
+    - Name: mce-doc
+      AsWholeName: yes
+      Summary: Documentation files for mce D-Bus API
+      Group: Documentation
+      BuildArch:  noarch
+      AutoDepend: false
+      Description: |
+          This package contains documentation describing the D-Bus method calls
+          provided by the Mode Control Entity, and the signals emitted by it.
+
