@@ -9,7 +9,7 @@ Name:       mce-headers
 # << macros
 
 Summary:    Development files for mce
-Version:    1.12.3
+Version:    1.12.4
 Release:    1
 Group:      Development/Libraries
 License:    LGPLv2

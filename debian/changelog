@@ -1,3 +1,10 @@
+mce-dev (1.12.4) unstable; urgency=low
+
+  * [packaging] move to git based packaging
+  * [mce-headers] Configuration value methods and signals added
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Wed, 04 Sep 2013 13:23:08 +0300
+
 mce-dev (1.12.3) unstable; urgency=low
 
   * Added cpu-keepalive methods
