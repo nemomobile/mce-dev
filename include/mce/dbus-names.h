@@ -396,6 +396,28 @@
  */
 #define MCE_CPU_KEEPALIVE_WAKEUP_REQ	"req_cpu_keepalive_wakeup"
 
+/** Query configuration value
+ *
+ * @since v1.12.15
+ *
+ * @param key Configuration value name as DBUS_TYPE_STRING
+ *
+ * @return Configuration value as DBUS_TYPE_VARIANT, or
+ *         error reply
+ */
+#define MCE_CONFIG_GET	"get_config"
+
+/** Set configuration value
+ *
+ * @since v1.12.15
+ *
+ * @param key Configuration value name as DBUS_TYPE_STRING
+ * @param val Configuration value as DBUS_TYPE_VARIANT
+ *
+ * @return Success as DBUS_TYPE_BOOLEAN, or error reply
+ */
+#define MCE_CONFIG_SET	"set_config"
+
 /*@}*/
 
 /**
@@ -467,6 +489,16 @@
  *             (see @ref mce/mode-names.h for valid emergency state types)
  */
 #define MCE_CALL_STATE_SIG		"sig_call_state_ind"
+
+/** Notify everyone that mce configuration value has changed
+ *
+ * @since v1.14.1
+ *
+ * @param key Config value name as DBUS_TYPE_STRING
+ * @param val Config value as DBUS_TYPE_VARIANT
+ */
+#define MCE_CONFIG_CHANGE_SIG		"config_change_ind"
+
 
 /*@}*/
 
