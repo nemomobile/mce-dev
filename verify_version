@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Check that all files that should have the current version agree on it
+
+PC_PATH=mce.pc
+PC_VERS=$(grep '^Version:' $PC_PATH |sed -e 's/^.*:[[:space:]]*//')
+
+DEB_PATH=debian/changelog
+DEB_VERS=$(head -1 $DEB_PATH | sed -e 's/^.*(//' -e 's/).*$//')
+
+SPEC_PATH=${RPM_SOURCE_DIR:-rpm}/${RPM_PACKAGE_NAME:-mce-headers}.spec
+SPEC_VERS=$(grep '^Version:' $SPEC_PATH |sed -e 's/^.*:[[:space:]]*//')
+
+YAML_PATH=${RPM_SOURCE_DIR:-rpm}/${RPM_PACKAGE_NAME:-mce-headers}.yaml
+
+RES=0
+
+
+# The yaml file is included in the git tree, but not in the tarball
+# that is used during the OBS package build ...
+if [ -f $YAML_PATH ]; then
+  YAML_VERS=$(grep '^Version:' $YAML_PATH |sed -e 's/^.*:[[:space:]]*//')
+  if [ "$SPEC_VERS" != "$YAML_VERS" ]; then
+    echo >&2 "$YAML_PATH $YAML_VERS vs $SPEC_PATH $SPEC_VERS"
+    RES=1
+  fi
+fi
+
+if [ "$DEB_VERS" != "$PC_VERS" ]; then
+  echo >&2 "$PC_PATH $PC_VERS vs $DEB_PATH $DEB_VERS"
+  RES=1
+fi
+
+if [ "$SPEC_VERS" != "$PC_VERS" ]; then
+  echo >&2 "$PC_PATH $PC_VERS vs $SPEC_PATH $SPEC_VERS"
+  RES=1
+fi
+
+
+if [ $RES != 0 ]; then
+  echo >&2 "Conflicting package versions"
+fi
+
+exit $RES
