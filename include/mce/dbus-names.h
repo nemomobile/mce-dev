@@ -346,7 +346,7 @@
  *
  * @since v1.12.8
  *
- * @return period in seconds as DBUS_TYPE_UINT32
+ * @return period in seconds as DBUS_TYPE_INT32
  */
 #define MCE_CPU_KEEPALIVE_PERIOD_REQ	"req_cpu_keepalive_period"
 
