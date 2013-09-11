@@ -1,3 +1,9 @@
+mce-dev (1.12.5) unstable; urgency=low
+
+ * [mce-headers] Fix MCE_CPU_KEEPALIVE_PERIOD_REQ method call documentation
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Wed, 11 Sep 2013 08:26:03 +0300
+
 mce-dev (1.12.4) unstable; urgency=low
 
   * [packaging] move to git based packaging
