@@ -1,3 +1,10 @@
+mce-dev (1.13.0) unstable; urgency=low
+
+  * [mce-headers] Add D-Bus signals for led pattern active state changes
+  * [mce-headers] Document tracking id parameter for cpu keepalive method calls
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Tue, 18 Mar 2014 15:00:14 +0200
+
 mce-dev (1.12.5) unstable; urgency=low
 
  * [mce-headers] Fix MCE_CPU_KEEPALIVE_PERIOD_REQ method call documentation
