@@ -346,6 +346,19 @@
  *
  * @since v1.12.8
  *
+ * @since v1.23.7
+ *
+ * An unique within process tracking id can be passed to all
+ * cpu keepalive related D-Bus method calls. This allows mce
+ * to keep track of multiple, possibly overlapping keepalive
+ * periods from one process.
+ *
+ * Old code that does not pass the tracking id still works
+ * as long as the client process does not have multiple
+ * overlapping periods at once.
+ *
+ * @param context Tracking id as DBUS_TYPE_STRING
+ *
  * @return period in seconds as DBUS_TYPE_INT32
  */
 #define MCE_CPU_KEEPALIVE_PERIOD_REQ	"req_cpu_keepalive_period"
@@ -362,6 +375,8 @@
  *
  * @since v1.12.8
  *
+ * @param context Tracking id as DBUS_TYPE_STRING
+ *
  * @return success as DBUS_TYPE_BOOLEAN
  */
 #define MCE_CPU_KEEPALIVE_START_REQ	"req_cpu_keepalive_start"
@@ -376,6 +391,8 @@
  *       only if requested.
  *
  * @since v1.12.8
+ *
+ * @param context Tracking id as DBUS_TYPE_STRING
  *
  * @return success as DBUS_TYPE_BOOLEAN
  */
