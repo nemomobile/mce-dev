@@ -510,7 +510,10 @@
 
 /**
  * Activates a pre-defined LED pattern
+ *
  * Non-existing patterns are ignored
+ *
+ * See also: MCE_LED_PATTERN_ACTIVATED_SIG
  *
  * @credential mce::LEDControl
  * @since v1.5.0
@@ -521,7 +524,10 @@
 
 /**
  * Deactivates a pre-defined LED pattern
+ *
  * Non-existing patterns are ignored
+ *
+ * See also: MCE_LED_PATTERN_DEACTIVATED_SIG
  *
  * @credential mce::LEDControl
  * @since v1.5.0
@@ -529,6 +535,20 @@
  *                (see @c /etc/mce/mce.ini for valid pattern names)
  */
 #define MCE_DEACTIVATE_LED_PATTERN	"req_led_pattern_deactivate"
+
+/** Notify everyone that a led pattern has been activated
+ *
+ * @since v1.25.0
+ * @return @c gchar @c * led pattern name
+ */
+#define MCE_LED_PATTERN_ACTIVATED_SIG   "led_pattern_activated_ind"
+
+/** Notify everyone that a led pattern has been deactivated
+ *
+ * @since v1.25.0
+ * @return @c gchar @c * led pattern name
+ */
+#define MCE_LED_PATTERN_DEACTIVATED_SIG "led_pattern_deactivated_ind"
 
 /**
  * Enable LED; this does not affect the LED pattern stack
