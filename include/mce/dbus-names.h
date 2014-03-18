@@ -346,6 +346,19 @@
  *
  * @since v1.12.8
  *
+ * @since v1.23.7
+ *
+ * An unique within process tracking id can be passed to all
+ * cpu keepalive related D-Bus method calls. This allows mce
+ * to keep track of multiple, possibly overlapping keepalive
+ * periods from one process.
+ *
+ * Old code that does not pass the tracking id still works
+ * as long as the client process does not have multiple
+ * overlapping periods at once.
+ *
+ * @param context Tracking id as DBUS_TYPE_STRING
+ *
  * @return period in seconds as DBUS_TYPE_INT32
  */
 #define MCE_CPU_KEEPALIVE_PERIOD_REQ	"req_cpu_keepalive_period"
@@ -362,6 +375,8 @@
  *
  * @since v1.12.8
  *
+ * @param context Tracking id as DBUS_TYPE_STRING
+ *
  * @return success as DBUS_TYPE_BOOLEAN
  */
 #define MCE_CPU_KEEPALIVE_START_REQ	"req_cpu_keepalive_start"
@@ -376,6 +391,8 @@
  *       only if requested.
  *
  * @since v1.12.8
+ *
+ * @param context Tracking id as DBUS_TYPE_STRING
  *
  * @return success as DBUS_TYPE_BOOLEAN
  */
@@ -510,7 +527,10 @@
 
 /**
  * Activates a pre-defined LED pattern
+ *
  * Non-existing patterns are ignored
+ *
+ * See also: MCE_LED_PATTERN_ACTIVATED_SIG
  *
  * @credential mce::LEDControl
  * @since v1.5.0
@@ -521,7 +541,10 @@
 
 /**
  * Deactivates a pre-defined LED pattern
+ *
  * Non-existing patterns are ignored
+ *
+ * See also: MCE_LED_PATTERN_DEACTIVATED_SIG
  *
  * @credential mce::LEDControl
  * @since v1.5.0
@@ -529,6 +552,20 @@
  *                (see @c /etc/mce/mce.ini for valid pattern names)
  */
 #define MCE_DEACTIVATE_LED_PATTERN	"req_led_pattern_deactivate"
+
+/** Notify everyone that a led pattern has been activated
+ *
+ * @since v1.25.0
+ * @return @c gchar @c * led pattern name
+ */
+#define MCE_LED_PATTERN_ACTIVATED_SIG   "led_pattern_activated_ind"
+
+/** Notify everyone that a led pattern has been deactivated
+ *
+ * @since v1.25.0
+ * @return @c gchar @c * led pattern name
+ */
+#define MCE_LED_PATTERN_DEACTIVATED_SIG "led_pattern_deactivated_ind"
 
 /**
  * Enable LED; this does not affect the LED pattern stack
