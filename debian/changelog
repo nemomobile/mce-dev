@@ -1,3 +1,10 @@
+mce-dev (1.14.0) unstable; urgency=low
+
+  * [mce] Add dbus method for requesting display low power mode.
+    Contributes to JB#20906
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Tue, 05 Aug 2014 12:55:05 +0300
+
 mce-dev (1.13.0) unstable; urgency=low
 
   * [mce-headers] Add D-Bus signals for led pattern active state changes
