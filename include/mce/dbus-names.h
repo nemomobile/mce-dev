@@ -262,6 +262,18 @@
  */
 #define MCE_DISPLAY_OFF_REQ		"req_display_state_off"
 
+/** Set display to low power mode
+ *
+ * Low power mode is a display off sub state. From normal
+ * display state signaling point of view it behaves just as
+ * display off would. Depending on available hw support and
+ * configuration extra ipc relevant for home screen / system
+ * ui only might happen.
+ *
+ * @since v1.33.0
+ */
+#define MCE_DISPLAY_LPM_REQ             "req_display_state_lpm"
+
 /**
  * Prevent display from blanking
  *
