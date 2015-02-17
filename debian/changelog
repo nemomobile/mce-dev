@@ -1,3 +1,10 @@
+mce-dev (1.15.0) unstable; urgency=low
+
+  * [mce] Add dbus method for requesting settings reset. Contributes to
+    JB#24286
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Tue, 17 Feb 2015 10:42:49 +0200
+
 mce-dev (1.14.0) unstable; urgency=low
 
   * [mce] Add dbus method for requesting display low power mode.
