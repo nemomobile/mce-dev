@@ -447,6 +447,19 @@
  */
 #define MCE_CONFIG_SET	"set_config"
 
+/** Reset configuration values to default
+ *
+ * All config settings with keyname that matches the given substring
+ * will be reset to configured defaults e.g. using "/" resets all
+ * settings while using "/display/" resets only display related values.
+ *
+ * @since v1.42.0
+ *
+ * @param keyish Substring of config value name as DBUS_TYPE_STRING
+ *
+ * @return Number of changed settings as DBUS_TYPE_INT32; -1 on failure
+ */
+#define MCE_CONFIG_RESET "reset_config"
 /*@}*/
 
 /**
