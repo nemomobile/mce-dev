@@ -163,6 +163,28 @@
  */
 #define MCE_DISPLAY_OFF_STRING			"off"
 
+/** Blank prevent state name for active
+ *
+ * @since v1.51.0
+ */
+#define MCE_PREVENT_BLANK_ACTIVE_STRING		"active"
+/** Blank prevent state name for inactive
+ *
+ * @since v1.51.0
+ */
+#define MCE_PREVENT_BLANK_INACTIVE_STRING	"inactive"
+
+/** Blank inhibit state name for active
+ *
+ * @since v1.51.0
+ */
+#define MCE_INHIBIT_BLANK_ACTIVE_STRING		"active"
+/** Blank inhibit state name for inactive
+ *
+ * @since v1.51.0
+ */
+#define MCE_INHIBIT_BLANK_INACTIVE_STRING	"inactive"
+
 /**
  * CABC name for CABC disabled
  *

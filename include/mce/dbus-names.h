@@ -288,6 +288,24 @@
  */
 #define MCE_CANCEL_PREVENT_BLANK_REQ	"req_display_cancel_blanking_pause"
 
+/** Get current blank prevention status
+ *
+ * @since 1.51.0
+ *
+ * @return @c gchar @c * with the blanking pause state
+ *         (see @ref mce/mode-names.h for valid blanking pause states)
+ */
+#define MCE_PREVENT_BLANK_GET		"get_display_blanking_pause"
+
+/** Get current blank inhibition status
+ *
+ * @since 1.51.0
+ *
+ * @return @c gchar @c * with the blanking inhibit state
+ *         (see @ref mce/mode-names.h for valid blanking inhibit states)
+ */
+#define MCE_BLANKING_INHIBIT_GET	"get_display_blanking_inhibit"
+
 /**
  * Request CABC mode change
  *
@@ -485,6 +503,24 @@
  *         (see @ref mce/mode-names.h for valid display states)
  */
 #define MCE_DISPLAY_SIG			"display_status_ind"
+
+/** Notify everyone whether the display blanking is paused
+ *
+ * @since v1.51.0
+ *
+ * @return @c gchar @c * with the blanking pause state
+ *         (see @ref mce/mode-names.h for valid blanking pause states)
+ */
+#define MCE_PREVENT_BLANK_SIG		"display_blanking_pause_ind"
+
+/** Notify everyone whether the display blanking is inhibited
+ *
+ * @since v1.51.0
+ *
+ * @return @c gchar @c * with the display baling inhibit state
+ *         (see @ref mce/mode-names.h for valid blanking inhibit states)
+ */
+#define MCE_BLANKING_INHIBIT_SIG	"display_blanking_inhibit_ind"
 
 /**
  * Notify everyone that the state of the automatic power saving mode changed
