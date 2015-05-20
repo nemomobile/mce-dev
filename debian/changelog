@@ -1,3 +1,10 @@
+mce-dev (1.16.0) unstable; urgency=low
+
+  * [mce] Add D-Bus constants for exposing blanking pause and inhibit
+    states. Contributes to JB#28929
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Wed, 20 May 2015 12:54:50 +0300
+
 mce-dev (1.15.0) unstable; urgency=low
 
   * [mce] Add dbus method for requesting settings reset. Contributes to
