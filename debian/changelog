@@ -1,3 +1,10 @@
+mce-dev (1.16.1) unstable; urgency=low
+
+  * [packaging] Remove old spectacle cruft. Fixes JB#28938
+  * [packaging] Remove rpm build time patch for file ownership
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Wed, 27 May 2015 08:09:56 +0300
+
 mce-dev (1.16.0) unstable; urgency=low
 
   * [mce] Add D-Bus constants for exposing blanking pause and inhibit
