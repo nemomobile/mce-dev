@@ -6,7 +6,7 @@
 # Modified by: Ilya Dogolazky, Tuomo Tanskanen
 
 INSTALL_DIR := install -d
-INSTALL_DATA := install -o root -g root --mode=644
+INSTALL_DATA := install --mode=644
 
 DOXYGEN := doxygen
 
