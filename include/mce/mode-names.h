@@ -185,6 +185,36 @@
  */
 #define MCE_INHIBIT_BLANK_INACTIVE_STRING	"inactive"
 
+/** Default blanking policy active
+ *
+ * @since v1.55.0
+ */
+#define MCE_BLANKING_POLICY_DEFAULT_STRING      "default"
+
+/** Default blanking policy disabled due to notifications
+ *
+ * @since v1.55.0
+ */
+#define MCE_BLANKING_POLICY_NOTIFICATION_STRING "notification"
+
+/** Default blanking policy disabled due to alarm dialog state
+ *
+ * @since v1.55.0
+ */
+#define MCE_BLANKING_POLICY_ALARM_STRING        "alarm"
+
+/** Default blanking policy disabled due to call state
+ *
+ * @since v1.55.0
+ */
+#define MCE_BLANKING_POLICY_CALL_STRING         "call"
+
+/** Default blanking policy is about to be restored
+ *
+ * @since v1.55.0
+ */
+#define MCE_BLANKING_POLICY_LINGER_STRING       "linger"
+
 /**
  * CABC name for CABC disabled
  *
