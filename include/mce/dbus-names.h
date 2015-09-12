@@ -345,10 +345,8 @@
  *                trigger; @c FALSE == short powerkey press,
  *                         @c TRUE == long powerkey press
  * @since v1.10.54
- * @param type @c dbus_uint32_t with the type of powerkey event to
- *                trigger; @c 0 == short powerkey press,
- *                         @c 1 == long powerkey press,
- *                         @c 2 == double powerkey press
+ * @param type @c dbus_uint32_t with the type of powerkey event to trigger
+ *             (see @ref mce/mode-names.h for valid events)
  */
 #define MCE_TRIGGER_POWERKEY_EVENT_REQ	"req_trigger_powerkey_event"
 
