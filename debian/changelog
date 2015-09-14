@@ -1,3 +1,9 @@
+mce-dev (1.18.0) unstable; urgency=low
+
+  * [powerkey] Add constants for powerkey events. Fixes MER#1310
+
+ -- Simo Piiroinen <simo.piiroinen@jollamobile.com>  Mon, 14 Sep 2015 11:44:27 +0300
+
 mce-dev (1.17.0) unstable; urgency=low
 
   * [mce] Add D-Bus constants for exposing display blanking policy.
