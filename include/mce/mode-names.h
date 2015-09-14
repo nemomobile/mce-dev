@@ -239,5 +239,23 @@
  * @since v1.8.88
  */
 #define MCE_CABC_MODE_MOVING_IMAGE		"moving-image"
+/**
+ * POWERKEY EVENT for single powerkey press
+ *
+ * @since v1.10.54
+ */
+#define MCE_POWERKEY_EVENT_SHORT_PRESS        (0u)
+/**
+ * POWERKEY EVENT for long powerkey press
+ *
+ * @since v1.10.54
+ */
+#define MCE_POWERKEY_EVENT_LONG_PRESS         (1u)
+/**
+ * POWERKEY EVENT for double powerkey press
+ *
+ * @since v1.10.54
+ */
+#define MCE_POWERKEY_EVENT_DOUBLE_PRESS       (2u)
 
 #endif /* _MCE_MODE_NAMES_H_ */
